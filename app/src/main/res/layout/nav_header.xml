@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:padding="10dp"
+    android:background="?attr/colorPrimary">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icon_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:src="@mipmap/user_pic" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:text="玄览"
+        android:layout_toRightOf="@+id/icon_image"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/signal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="天下入梦来"
+        android:textSize="16sp"
+        android:textColor="#FFF"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/icon_image"/>
+
+</RelativeLayout>
