@@ -70,7 +70,6 @@ public class KnowLedgeItemActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 responseData = response.body().string();
-                Log.e("item", responseData);
                 try {
                     result = new JSONObject(responseData);
                     jsonArray = result.getJSONArray("answer");

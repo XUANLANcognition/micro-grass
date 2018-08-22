@@ -8,14 +8,26 @@ public class Article {
     private String user;
     private String hot;
     private String userPic;
+    private String id;
+    private String content;
+    private String lables;
 
-    public Article(String title, String username, String pubDate, String user, String hot, String userPic) {
+    public Article(String title, String content, String lables, String pubDate, String hot) {
+        this.title = title;
+        this.content = content;
+        this.lables = lables;
+        this.pubDate = pubDate;
+        this.hot = hot;
+    }
+
+    public Article(String title, String username, String pubDate, String user, String hot, String userPic, String id) {
         this.title = title;
         this.username = username;
         this.pubDate = pubDate;
         this.user = user;
         this.hot = hot;
         this.userPic = userPic;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -42,6 +54,18 @@ public class Article {
         return hot;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getLables() {
+        return lables;
+    }
+
     public void setUserPic(String userPic) {
         this.userPic = userPic;
     }
@@ -64,5 +88,17 @@ public class Article {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setLables(String lables) {
+        this.lables = lables;
     }
 }

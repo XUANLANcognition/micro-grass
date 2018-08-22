@@ -51,7 +51,8 @@ public class ArticleFragment extends Fragment {
                                 jsonObject.getString("pub_date"),
                                 jsonObject.getString("user"),
                                 jsonObject.getString("hot"),
-                                jsonObject.getString("userPic")));
+                                jsonObject.getString("userPic"),
+                                jsonObject.getString("id")));
                     }
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -107,7 +108,8 @@ public class ArticleFragment extends Fragment {
                                         jsonObject.getString("pub_date"),
                                         jsonObject.getString("user"),
                                         jsonObject.getString("hot"),
-                                        jsonObject.getString("userPic")));
+                                        jsonObject.getString("userPic"),
+                                        jsonObject.getString("id")));
                             }
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override

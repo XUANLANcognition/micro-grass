@@ -1,6 +1,7 @@
 package com.example.xuanlan.nightwatchman;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -46,7 +47,9 @@ public class ArticleAdapter extends RecyclerView.Adapter <ArticleAdapter.ViewHol
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 Article article = articleList.get(position);
-                Toast.makeText(v.getContext(), "" + article.getTitle(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(v.getContext(), ArticleItemActivity.class);
+                intent.putExtra("id", article.getId());
+                v.getContext().startActivity(intent);
             }
         });
         return holder;
