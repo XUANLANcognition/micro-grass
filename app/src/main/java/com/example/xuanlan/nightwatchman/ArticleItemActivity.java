@@ -1,6 +1,7 @@
 package com.example.xuanlan.nightwatchman;
 
 import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +11,11 @@ import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONObject;
 
@@ -49,7 +53,11 @@ public class ArticleItemActivity extends AppCompatActivity {
 
         String id = intent.getStringExtra("id");
         final WebView webView = (WebView) findViewById(R.id.article_item_content);
-        final TextView textViewTitle = (TextView) findViewById(R.id.article_item_title);
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
+        ImageView imageView = (ImageView) findViewById(R.id.article_item_image);
+        Glide.with(this)
+                .load("https://cn.bing.com/az/hprichbg/rb/ManedWolf_ZH-CN10924002958_1920x1080.jpg")
+                .into(imageView);
 
         // 获取文章自内容
         RequestBody requestBody = new FormBody.Builder()
@@ -74,7 +82,8 @@ public class ArticleItemActivity extends AppCompatActivity {
                         public void run() {
                             String temp = article.getContent().replace("<img", "<img style=\"max-width:100%;\"");
                             webView.loadData(temp, "text/html", "utf-8");
-                            textViewTitle.setText(article.getTitle());
+                            collapsingToolbarLayout.setTitle(article.getTitle());
+
                         }
                     });
                 } catch (Exception e) {
