@@ -1,6 +1,7 @@
 package com.example.xuanlan.nightwatchman;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.elmargomez.typer.Font;
+import com.elmargomez.typer.Typer;
 
 import org.json.JSONObject;
 
@@ -54,9 +57,9 @@ public class ArticleItemActivity extends AppCompatActivity {
         String id = intent.getStringExtra("id");
         final WebView webView = (WebView) findViewById(R.id.article_item_content);
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
-        ImageView imageView = (ImageView) findViewById(R.id.article_item_image);
+        final ImageView imageView = (ImageView) findViewById(R.id.article_item_image);
         Glide.with(this)
-                .load("https://cn.bing.com/az/hprichbg/rb/ManedWolf_ZH-CN10924002958_1920x1080.jpg")
+                .load("https://cn.bing.com/az/hprichbg/rb/FranceMenton_ZH-CN8996032014_1920x1080.jpg")
                 .into(imageView);
 
         // 获取文章自内容
@@ -82,8 +85,10 @@ public class ArticleItemActivity extends AppCompatActivity {
                         public void run() {
                             String temp = article.getContent().replace("<img", "<img style=\"max-width:100%;\"");
                             webView.loadData(temp, "text/html", "utf-8");
+                            Typeface font = Typer.set(ArticleItemActivity.this).getFont(Font.ROBOTO_CONDENSED_REGULAR);
                             collapsingToolbarLayout.setTitle(article.getTitle());
-
+                            collapsingToolbarLayout.setCollapsedTitleTypeface(font);
+                            collapsingToolbarLayout.setExpandedTitleTypeface(font);
                         }
                     });
                 } catch (Exception e) {
