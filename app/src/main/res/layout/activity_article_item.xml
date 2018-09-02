@@ -30,7 +30,8 @@
                     android:layout_height="match_parent"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:contentScrim="@color/colorPrimary"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title">
 
                     <ImageView
                         android:id="@+id/article_item_image"
@@ -59,12 +60,46 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/article_title"
+                        android:background="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_margin="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="作者 ： "/>
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/article_main_user_pic"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp" />
+
+                            <TextView
+                                android:id="@+id/article_main_username"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp" />
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
                     <WebView
                         android:id="@+id/article_item_content"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="30dp">
+                        android:layout_height="wrap_content">
                     </WebView>
 
                 </LinearLayout>

@@ -65,6 +65,8 @@ public class ArticleAdapter extends RecyclerView.Adapter <ArticleAdapter.ViewHol
                 Article article = articleList.get(position);
                 Intent intent = new Intent(v.getContext(), ArticleItemActivity.class);
                 intent.putExtra("id", article.getId());
+                intent.putExtra("userPic",article.getUserPic());
+                intent.putExtra("username", article.getUsername());
                 v.getContext().startActivity(intent);
             }
         });

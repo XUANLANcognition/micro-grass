@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.Request;
@@ -55,12 +56,21 @@ public class ArticleItemActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String id = intent.getStringExtra("id");
+        String userPic = intent.getStringExtra("userPic");
+        String username = intent.getStringExtra("username");
         final WebView webView = (WebView) findViewById(R.id.article_item_content);
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
         final ImageView imageView = (ImageView) findViewById(R.id.article_item_image);
+        final TextView textViewUsername = (TextView) findViewById(R.id.article_main_username);
         Glide.with(this)
                 .load("https://cn.bing.com/az/hprichbg/rb/FranceMenton_ZH-CN8996032014_1920x1080.jpg")
                 .into(imageView);
+        final CircleImageView circleImageView = (CircleImageView) findViewById(R.id.article_main_user_pic);
+        Glide.with(this)
+                .load(userPic)
+                .into(circleImageView);
+        textViewUsername.setText(username);
+
 
         // 获取文章自内容
         RequestBody requestBody = new FormBody.Builder()
@@ -85,7 +95,7 @@ public class ArticleItemActivity extends AppCompatActivity {
                         public void run() {
                             String temp = article.getContent().replace("<img", "<img style=\"max-width:100%;\"");
                             webView.loadData(temp, "text/html", "utf-8");
-                            Typeface font = Typer.set(ArticleItemActivity.this).getFont(Font.ROBOTO_CONDENSED_REGULAR);
+                            Typeface font = Typer.set(ArticleItemActivity.this).getFont(Font.ROBOTO_BOLD);
                             collapsingToolbarLayout.setTitle(article.getTitle());
                             collapsingToolbarLayout.setCollapsedTitleTypeface(font);
                             collapsingToolbarLayout.setExpandedTitleTypeface(font);
