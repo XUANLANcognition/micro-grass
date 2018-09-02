@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".KnowLedgeItemActivity" />
-        <activity android:name=".ArticleItemActivity"></activity>
+        <activity
+            android:name=".ArticleItemActivity"
+            android:theme="@style/ArticleTheme">
+        </activity>
     </application>
 
 </manifest>

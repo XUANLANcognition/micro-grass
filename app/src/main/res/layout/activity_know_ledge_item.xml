@@ -77,7 +77,7 @@
                                 android:layout_alignParentLeft="true"
                                 android:drawableLeft="@drawable/ic_brush_black_16dp"
                                 android:minWidth="0dp"
-                                android:minHeight="0dp"/>
+                                android:minHeight="0dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"

@@ -63,20 +63,24 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:drawableLeft="@drawable/ic_thumb_up_black_16dp"
-                android:layout_alignParentLeft="true"/>
+                android:layout_alignParentLeft="true"
+                android:background="@color/white"/>
 
             <ImageButton
                 android:id="@+id/answer_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_star_black_16dp"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_forum_black_16dp"
-                android:layout_toLeftOf="@id/answer_star" />
+                android:layout_toLeftOf="@id/answer_star"
+                android:background="@color/white" />
 
         </RelativeLayout>
 
