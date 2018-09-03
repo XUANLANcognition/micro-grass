@@ -99,6 +99,7 @@ public class ArticleItemActivity extends AppCompatActivity {
                             collapsingToolbarLayout.setTitle(article.getTitle());
                             collapsingToolbarLayout.setCollapsedTitleTypeface(font);
                             collapsingToolbarLayout.setExpandedTitleTypeface(font);
+                            webView.getSettings().setDefaultFontSize(20);
                         }
                     });
                 } catch (Exception e) {

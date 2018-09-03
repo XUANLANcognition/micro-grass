@@ -1,6 +1,7 @@
 package com.example.xuanlan.nightwatchman;
 
 import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +51,7 @@ public class KnowLedgeItemActivity extends AppCompatActivity {
         toggle.syncState();
 
         Intent intent = getIntent();
-        String data = intent.getStringExtra("title");
+        final String data = intent.getStringExtra("title");
         String data1 = intent.getStringExtra("body");
         String data2 = intent.getStringExtra("id");
         TextView textView = (TextView) findViewById(R.id.knowledge_item_title);
@@ -58,6 +59,8 @@ public class KnowLedgeItemActivity extends AppCompatActivity {
         textView.setText(data);
         textView1.setText(data1);
 
+        // 回答数量
+        final TextView textViewAnswerNum = (TextView) findViewById(R.id.answer_num);
 
         // 获取回答数据
         RequestBody requestBody = new FormBody.Builder()
@@ -88,6 +91,7 @@ public class KnowLedgeItemActivity extends AppCompatActivity {
                         public void run() {
                             answerAdapter.notifyDataSetChanged();
                             Toast.makeText(KnowLedgeItemActivity.this, "已更新回答", Toast.LENGTH_SHORT).show();
+                            textViewAnswerNum.setText("共 " + answerList.size() + " 条回答");
                         }
                     });
                 }catch (Exception e) {
