@@ -19,7 +19,7 @@ public class SystemFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.system_main, container, false);
         TextView textView = (TextView) v.findViewById(R.id.system_text);
-        textView.setText("系统");
+        textView.setText("功能开发中...");
         return  v;
     }
 }

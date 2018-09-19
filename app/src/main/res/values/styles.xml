@@ -10,4 +10,13 @@
 
     <style name="ArticleTheme" parent="AppTheme"></style>
 
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="StartTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
 </resources>

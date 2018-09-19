@@ -1,8 +1,10 @@
 package com.example.xuanlan.nightwatchman;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,7 +16,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import android.transition.Fade;
+import android.transition.Slide;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,6 +30,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -54,6 +61,20 @@ public class mainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_main);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(sectionsPagerAdapter);
+
+
+        // sign in
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerNavigation = navigationView.getHeaderView(0);
+        TextView textViewSignIn = (TextView) headerNavigation.findViewById(R.id.sign_in);
+        textViewSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         // 底部导航
         final BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);

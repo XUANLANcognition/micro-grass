@@ -10,4 +10,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="StartTheme" parent="AppTheme">
+
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
 </resources>

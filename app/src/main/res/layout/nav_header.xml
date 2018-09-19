@@ -26,10 +26,10 @@
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:id="@+id/signal"
+        android:id="@+id/sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登陆 | 注册"
+        android:text="登陆     |     注册"
         android:textSize="16sp"
         android:textColor="#FFF"
         android:paddingTop="10dp"
